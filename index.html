@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good bad</title>
+</head>
+<body>
+<div class="contain">
+    <h1 class="heading">Refresh</h1>
+
+    <div class="guess">
+        <p class="player1">Player 1</p>
+        <p class="guess1" ></p>
+      </div>
+   
+      <div class="guess">
+        <p class="player1">Player 2</p>
+        <p class="guess2" ></p>
+      </div>
+
+</div>
+    
+
+<script>
+
+const guess = ['WORSE','BAD','GOOD'];
+
+const player1 = document.querySelector('.player1');
+const player2 = document.querySelector('.player2');
+const guess1 = document.querySelector('.guess1');
+const guess2 = document.querySelector('.guess2');
+const headingElement = document.querySelector('.heading');
+
+const randomGuess1 = getRandomGuess();
+const randomGuess2 = getRandomGuess();
+
+function getRandomGuess() {
+    return Math.floor(Math.random() * guess.length);
+}
+
+function playGame(){
+    guess1.innerHTML = guess[randomGuess1];
+    guess2.innerHTML = guess[randomGuess2];
+
+    if(randomGuess1 > randomGuess2){
+        headingElement.innerHTML = 'Player 1 Wins!';
+    }else if(randomGuess1 < randomGuess2){
+        headingElement.innerHTML = 'Player 2 Wins!';
+    }else{
+        headingElement.innerHTML = 'Draw!';
+        
+    }
+}
+
+playGame()
+
+</script>
+    
+</body>
+</html>
